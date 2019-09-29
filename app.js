@@ -12,7 +12,10 @@ mongoose.connect('mongodb://localhost:27017/ProjectsDB').then(
     () => { console.log('Connected to ProjectsDB') },
     err => { console.log('Error connecting to ProjectsDB. Error: ' + err) }
   );
-  
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+
 app.use('/users', user);
 let port = 4001;
 
